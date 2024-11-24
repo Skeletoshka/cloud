@@ -1,4 +1,4 @@
-package biz.bna.lab1.controller;
+package biz.bna.core.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 

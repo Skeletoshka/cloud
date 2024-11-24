@@ -1,13 +1,13 @@
-package biz.bna.lab1;
+package biz.bna.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Lab1Application {
+public class MainApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Lab1Application.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 
 }
