@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: application
+  template:
+    metadata:
+      labels:
+        app: application
+    spec:
+      containers:
+        - name: backend
+          image: nbryklia/cloud-backend:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8081
+        - name: frontend
+          image: nbryklia/cloud-client:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
