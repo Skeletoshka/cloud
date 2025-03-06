@@ -23,7 +23,7 @@ public class CounterController {
 
     @RequestMapping(value = "/counter", method = RequestMethod.GET)
     public String counter() {
-        try(Jedis jedis = new Jedis("localhost", 6379)) {
+        try(Jedis jedis = new Jedis(host, port)) {
             String counterValue = jedis.get("counter");
             if (counterValue == null) {
                 counterValue = "0";
@@ -37,7 +37,7 @@ public class CounterController {
 
     @RequestMapping(value = "/players", method = RequestMethod.GET)
     public String players() {
-        try(Jedis jedis = new Jedis("localhost", 6379)) {
+        try(Jedis jedis = new Jedis(host, port)) {
             List<Tuple> players = jedis.zrandmemberWithScores(keySetPlayers, 10);
             return String.format(new ObjectMapper().writeValueAsString(players));
         }catch (Exception e){
